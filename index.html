@@ -91,6 +91,35 @@ button,input,select,textarea{font:inherit;color:inherit}
   .catalog-toolbar .select{font-size:13px}
 }
 
+
+/* Desktop refinement: slightly larger type and more breathing room without changing mobile layouts. */
+@media(min-width:1200px){
+  .shell{width:min(100% - 44px,1440px)}
+  .header-in{width:min(100% - 52px,1500px);gap:29px}
+  .header-nav{gap:27px}
+  .header-nav a{font-size:13px}
+  .header-search{width:205px}
+  .header-search input{font-size:13px}
+  .hero{min-height:clamp(620px,calc(100svh - var(--head)),900px)}
+  .product-grid{gap:30px 20px}
+  .product-name{font-size:15px;min-height:40px}
+  .product-price{font-size:17px}
+  .product-note{font-size:12px}
+  .btn{font-size:14px}
+  .page-info{font-size:14px}
+  .filter-group strong{font-size:14px}
+  .filter-row{font-size:13px}
+  .filter-size-list .size-chip{font-size:13px}
+  .cat-pill{font-size:12px;padding:9px 15px}
+  .select{font-size:13px}
+  .tab{font-size:14px}
+  .details summary{font-size:14px}
+  .value-cell p{font-size:14px}
+  .category-info{font-size:25px}
+  .crumb{font-size:12px}
+  .eyebrow{font-size:12px}
+}
+
 </style>
   
 </head>
@@ -128,7 +157,7 @@ const save=()=>{try{localStorage.setItem('eva-cart',JSON.stringify(state.cart));
 const cartCount=()=>state.cart.reduce((n,c)=>n+c.qty,0),cartTotal=()=>state.cart.reduce((n,c)=>n+c.qty*(PRODUCTS.find(p=>p.id===c.id)?.price||0),0);
 const href=(route)=>`#/${route}`;
 const photoTag=(url,alt='',priority=false)=>`<img src="${url}" alt="${alt}" loading="${priority?'eager':'lazy'}" ${priority?'fetchpriority="high"':''} referrerpolicy="no-referrer"/>`;
-const head=()=>`<div class="topline">Женское бельё для каждого дня</div><header class="site-header"><div class="header-in"><button type="button" class="icon-btn mobile-menu-btn" data-action="menu" aria-label="Открыть меню">${icon('menu')}</button><a class="brand" href="#/" aria-label="EVA — на главную">EVA</a><nav class="header-nav" aria-label="Основное меню"><a href="#/catalog">Каталог</a><a href="#/catalog?new=1">Новинки</a><a href="#/catalog?category=sets">Комплекты</a><a href="#/catalog?category=bras">Бюстгальтеры</a><a href="#/catalog?category=bodysuits">Боди</a></nav><form class="header-search" id="header-search">${icon('search',18)}<input name="q" type="search" placeholder="Поиск по каталогу" aria-label="Поиск товаров"></form><div class="header-actions"><button class="icon-btn" data-action="search" aria-label="Поиск">${icon('search')}</button><a class="icon-btn" href="#/favorites" aria-label="Избранное">${icon('heart')}</a><a class="icon-btn" href="#/cart" aria-label="Корзина">${icon('bag')}${cartCount()?`<span class="count-bubble">${cartCount()}</span>`:''}</a></div></div></header><button type="button" class="help-launcher" data-action="help" aria-haspopup="dialog" aria-expanded="false">${icon('help',18)}<span>Помочь с выбором?</span></button>`;
+const head=()=>`<header class="site-header"><div class="header-in"><button type="button" class="icon-btn mobile-menu-btn" data-action="menu" aria-label="Открыть меню">${icon('menu')}</button><a class="brand" href="#/" aria-label="EVA — на главную">EVA</a><nav class="header-nav" aria-label="Основное меню"><a href="#/catalog">Каталог</a><a href="#/catalog?new=1">Новинки</a><a href="#/catalog?category=sets">Комплекты</a><a href="#/catalog?category=bras">Бюстгальтеры</a><a href="#/catalog?category=bodysuits">Боди</a></nav><form class="header-search" id="header-search">${icon('search',18)}<input name="q" type="search" placeholder="Поиск по каталогу" aria-label="Поиск товаров"></form><div class="header-actions"><button class="icon-btn" data-action="search" aria-label="Поиск">${icon('search')}</button><a class="icon-btn" href="#/favorites" aria-label="Избранное">${icon('heart')}</a><a class="icon-btn" href="#/cart" aria-label="Корзина">${icon('bag')}${cartCount()?`<span class="count-bubble">${cartCount()}</span>`:''}</a></div></div></header><button type="button" class="help-launcher" data-action="help" aria-haspopup="dialog" aria-expanded="false">${icon('help',18)}<span>Помочь с выбором?</span></button>`;
 const foot=()=>`<footer class="footer"><div class="shell"><div class="footer-row"><div class="footer-brand"><h2>EVA</h2><p class="subtitle">Женское бельё для каждого дня.</p></div><div class="footer-links"><div><strong>Покупателям</strong><a href="#/catalog">Каталог</a><a href="#/cart">Корзина</a><a href="#/favorites">Избранное</a></div><div><strong>Категории</strong><a href="#/catalog?category=bras">Бюстгальтеры</a><a href="#/catalog?category=panties">Трусики</a><a href="#/catalog?category=sets">Комплекты</a></div></div></div><div class="footer-line"><span>© 2026 EVA</span></div></div></footer>`;
 const productCard=(p)=>`<article class="product-card"><div class="product-photo" data-action="product" data-id="${p.id}" role="link" tabindex="0" aria-label="${p.name}">${photoTag(p.img,p.name)}<button type="button" class="wish ${state.likes.includes(p.id)?'selected':''}" data-action="like" data-id="${p.id}" aria-label="${state.likes.includes(p.id)?'Убрать из избранного':'В избранное'}">${icon('heart',18)}</button></div><div class="product-meta"><a class="product-name" href="#/product/${p.id}">${p.name}</a><div class="product-price">${fmt(p.price)}</div><div class="swatches">${p.colors.slice(0,4).map((c,i)=>`<span class="swatch ${i===0?'active':''}" title="${c}"><i style="background:${COLORS[c]}"></i></span>`).join('')}</div></div></article>`;
 const titleRow=(title,where='catalog',linkText='Смотреть все')=>`<div class="section-head"><h2 class="section-title">${title}</h2><a class="link-arrow" href="#/${where}">${linkText} ${icon('arrow')}</a></div>`;
