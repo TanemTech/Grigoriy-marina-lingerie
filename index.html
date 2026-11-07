@@ -120,6 +120,116 @@ button,input,select,textarea{font:inherit;color:inherit}
   .eyebrow{font-size:12px}
 }
 
+
+/* Desktop readability pass v2: scale the full desktop interface, not just a few labels. */
+@media(min-width:981px){
+  body{font-size:16px}
+  .shell{width:min(100% - 56px,1480px)}
+  .header-in{width:min(100% - 64px,1540px)}
+  .btn{font-size:14px;min-height:52px;padding:16px 28px}
+  .section-title{font-size:clamp(42px,5.1vw,70px)}
+  .category-info{font-size:27px;padding:20px 19px 23px}
+  .product-name{font-size:16px;min-height:42px}
+  .product-price{font-size:18px}
+  .product-note{font-size:13px}
+  .product-meta{padding:15px 0}
+  .filter-group strong{font-size:14px}
+  .filter-row{font-size:14px}
+  .filter-size-list .size-chip{font-size:14px;padding:10px 3px}
+  .cat-pill{font-size:13px;padding:10px 16px}
+  .select{font-size:13px;padding:11px 13px}
+  .tab{font-size:14px}
+  .page-title{font-size:clamp(46px,4.8vw,70px)}
+  .page-info{font-size:14px}
+  .crumb{font-size:12px}
+  .details summary{font-size:14px}
+  .details p{font-size:14px}
+  .footer-links a{font-size:13px}
+  .footer-links strong{font-size:13px}
+  .value-cell h3{font-size:28px}
+  .value-cell p{font-size:14px}
+}
+@media(min-width:981px) and (max-width:1199px){
+  .header-in{gap:15px}
+  .brand{font-size:37px}
+  .header-nav{gap:13px;margin-left:7px}
+  .header-nav a{font-size:12px}
+  .header-search{width:145px}
+}
+@media(min-width:1200px){
+  :root{--head:76px}
+  body{font-size:17px}
+  .shell{width:min(100% - 72px,1500px)}
+  .header-in{width:min(100% - 80px,1560px);gap:30px}
+  .brand{font-size:45px}
+  .header-nav{gap:29px;margin-left:28px}
+  .header-nav a{font-size:15px}
+  .header-search{width:225px}
+  .header-search input{font-size:14px;padding:13px 3px}
+  .icon-btn{width:46px;height:48px}
+  .btn{font-size:15px;min-height:55px;padding:17px 31px}
+  .hero-content p{font-size:20px;max-width:500px}
+  .content-section{padding:102px 0 108px}
+  .section-head{margin-bottom:38px}
+  .section-title{font-size:clamp(48px,5.2vw,76px)}
+  .category-grid{gap:21px}
+  .category-info{font-size:29px;padding:22px 21px 25px}
+  .product-grid{gap:36px 24px}
+  .product-card .wish{width:41px;height:41px;top:12px;right:12px}
+  .product-card .wish svg{width:21px;height:21px}
+  .product-meta{padding:17px 0}
+  .product-name{font-size:17px;line-height:1.4;min-height:48px}
+  .product-price{font-size:20px;margin-top:7px}
+  .product-note{font-size:14px;margin-top:4px}
+  .catalog-layout{grid-template-columns:270px minmax(0,1fr);gap:54px;padding:38px 0 100px}
+  .filter-group{padding:26px 0}
+  .filter-group strong{font-size:16px;margin-bottom:16px}
+  .filter-row{font-size:15px;gap:13px;margin:12px 0}
+  .filter-row input{width:18px;height:18px}
+  .filter-size-list{gap:8px}
+  .filter-size-list .size-chip{font-size:14px;padding:11px 4px}
+  .catalog-controls{margin-bottom:28px}
+  .cat-pills{gap:10px}
+  .cat-pill{font-size:14px;padding:11px 18px}
+  .select{font-size:14px;padding:12px 15px}
+  .tab-list{gap:26px;margin-bottom:34px}
+  .tab{font-size:15px;padding-bottom:15px}
+  .page-top{padding:48px 0 28px}
+  .page-title{font-size:clamp(52px,5vw,76px);margin-bottom:15px}
+  .page-info{font-size:15px}
+  .crumb{font-size:13px;margin-bottom:12px}
+  .eyebrow{font-size:13px}
+  .product-layout{gap:5.4vw;padding:34px 0 100px}
+  .product-purchase h1{font-size:clamp(46px,4.5vw,64px)}
+  .product-purchase .big-price{font-size:27px}
+  .field-label{font-size:14px}
+  .product-purchase .size-chip{font-size:15px;min-width:60px;padding:13px}
+  .details{padding:19px 0}
+  .details summary{font-size:15px}
+  .details p{font-size:15px;line-height:1.7}
+  .cart-layout{grid-template-columns:minmax(0,1fr) 390px;gap:60px;padding:42px 0 105px}
+  .cart-row{grid-template-columns:120px 1fr auto;gap:23px;padding:24px 0}
+  .cart-row h3{font-size:16px}
+  .cart-row p{font-size:14px}
+  .summary-box{padding:31px}
+  .summary-box h2{font-size:33px}
+  .summary-line{font-size:15px}
+  .summary-line.total{font-size:20px}
+  .checkout-layout{grid-template-columns:minmax(0,1fr) 380px;gap:7vw;padding:28px 0 110px}
+  .form-section h2{font-size:31px}
+  .field{font-size:14px}
+  .field input,.field textarea,.field select{padding:15px;font-size:15px}
+  .notice{font-size:14px;padding:17px}
+  .footer{padding:64px 0 40px}
+  .footer-links{gap:42px}
+  .footer-links strong{font-size:14px}
+  .footer-links a{font-size:14px;margin:13px 0}
+  .footer-line{font-size:12px}
+  .value-cell{padding:24px}
+  .value-cell h3{font-size:30px}
+  .value-cell p{font-size:15px}
+}
+
 </style>
   
 </head>
